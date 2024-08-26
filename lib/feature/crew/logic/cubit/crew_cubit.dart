@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_xplore/feature/crew/logic/cubit/crew_state.dart';
 import '../../data/model/crew_model.dart';
@@ -9,6 +10,7 @@ class CrewCubit extends Cubit<CrewState> {
   int page = 1;
 
   CrewCubit(this._crewRepo) : super(CrewInitialState());
+  static CrewCubit get(BuildContext context) => BlocProvider.of(context);
 
   Future<void> getAllCrew() async {
     if (page != 1) {

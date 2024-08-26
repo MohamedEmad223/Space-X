@@ -49,6 +49,8 @@ dependencies:
   webview_flutter: ^4.8.0
   # for utilities
   either_dart: ^1.0.0
+  # for loading
+  flutter_spinkit: ^5.2.1
   flutter:
     sdk: flutter
 

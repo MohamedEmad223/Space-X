@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_xplore/core/widgets/background_container.dart';
 import 'package:space_xplore/core/widgets/custom_app_bar.dart';
+import 'package:space_xplore/feature/crew/view/widgets/all_crew_member.dart';
 
 import '../../../../core/helpers/text_helper.dart';
 import '../../../../core/theming/text_style.dart';
-import '../widgets/custom_grid_veiw.dart';
 
 class CrewScreen extends StatelessWidget {
   const CrewScreen({super.key});
@@ -29,7 +29,7 @@ class CrewScreen extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            const CustomGridVeiw()
+            const AllCrewMembers()
           ],
         ),
       ))),
