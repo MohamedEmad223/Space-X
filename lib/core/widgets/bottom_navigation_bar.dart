@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:space_xplore/feature/crew/logic/cubit/crew_cubit.dart';
 import '../../feature/company_info/view/screens/company_info.dart';
 import '../../feature/crew/view/screens/crew_screen.dart';
 import '../../feature/launches/view/screens/launchs_screen.dart';
@@ -43,7 +44,10 @@ List<Widget> _buildScreens() {
       child: const RocketsScreen(),
     ),
     const LaunchsScreen(),
-    const CrewScreen(),
+    BlocProvider(
+      create: (context) => getIt<CrewCubit>(),
+      child: const CrewScreen(),
+    ),
     const ShipsScreen(),
     BlocProvider(
       create: (context) => getIt<CompanyInfoCubit>()..fetchCompanyInfo(),
