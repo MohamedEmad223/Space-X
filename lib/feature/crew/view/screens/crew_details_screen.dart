@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_xplore/core/helpers/text_helper.dart';
+import 'package:space_xplore/core/theming/text_style.dart';
 import 'package:space_xplore/core/widgets/background_container.dart';
 import 'package:space_xplore/core/widgets/custom_app_bar.dart';
 
 import '../../../../core/theming/colors_manger.dart';
+import '../widgets/circle_image.dart';
+import '../widgets/div.dart';
 
 class CrewDetailsScreen extends StatelessWidget {
   const CrewDetailsScreen({super.key, required this.imageUrl});
@@ -25,11 +29,26 @@ class CrewDetailsScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: ColorsManager.lightTransparentColor),
-                    child: Column(children: [
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                    ]))
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 20.w, right: 20.w),
+                      child: Column(children: [
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        CircleImage(imageUrl: imageUrl),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Text(
+                          Constants.crewModelName,
+                          style: TextStyles.font24WhiteBoldOrbitron,
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        const Div()
+                      ]),
+                    ))
               ],
             ),
           ),
