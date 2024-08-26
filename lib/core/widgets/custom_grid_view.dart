@@ -26,7 +26,7 @@ class CustomGridContainer extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: ColorsManager.shadowColor,
-            blurRadius: 10.r,
+            blurRadius: 5.r,
             offset: Offset(5.w, 5.h),
           ),
           BoxShadow(
