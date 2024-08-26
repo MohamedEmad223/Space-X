@@ -84,6 +84,9 @@ class _$RocketsStateCopyWithImpl<$Res, $Val extends RocketsState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of RocketsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$rocketsoInitialImplCopyWithImpl<$Res>
   __$$rocketsoInitialImplCopyWithImpl(
       _$rocketsoInitialImpl _value, $Res Function(_$rocketsoInitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RocketsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -214,6 +220,9 @@ class __$$RocketsLoadingImplCopyWithImpl<$Res>
   __$$RocketsLoadingImplCopyWithImpl(
       _$RocketsLoadingImpl _value, $Res Function(_$RocketsLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RocketsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -331,6 +340,8 @@ class __$$RocketsSuccesImplCopyWithImpl<$Res>
       _$RocketsSuccesImpl _value, $Res Function(_$RocketsSuccesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RocketsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -376,7 +387,9 @@ class _$RocketsSuccesImpl implements RocketsSucces {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_rockets));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RocketsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RocketsSuccesImplCopyWith<_$RocketsSuccesImpl> get copyWith =>
@@ -462,7 +475,10 @@ abstract class RocketsSucces implements RocketsState {
       _$RocketsSuccesImpl;
 
   List<RocketModel> get rockets;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RocketsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RocketsSuccesImplCopyWith<_$RocketsSuccesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -484,6 +500,8 @@ class __$$RocketsErrorImplCopyWithImpl<$Res>
       _$RocketsErrorImpl _value, $Res Function(_$RocketsErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RocketsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -523,7 +541,9 @@ class _$RocketsErrorImpl implements RocketsError {
   @override
   int get hashCode => Object.hash(runtimeType, apiErrorHandler);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RocketsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RocketsErrorImplCopyWith<_$RocketsErrorImpl> get copyWith =>
@@ -609,7 +629,10 @@ abstract class RocketsError implements RocketsState {
       _$RocketsErrorImpl;
 
   ApiErrorHandler get apiErrorHandler;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RocketsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RocketsErrorImplCopyWith<_$RocketsErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

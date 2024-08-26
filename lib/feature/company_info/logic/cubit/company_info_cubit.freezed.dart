@@ -84,6 +84,9 @@ class _$CompanyInfoStateCopyWithImpl<$Res, $Val extends CompanyInfoState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CompanyInfoState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompanyInfoState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -214,6 +220,9 @@ class __$$CompanyInfoLoadingImplCopyWithImpl<$Res>
   __$$CompanyInfoLoadingImplCopyWithImpl(_$CompanyInfoLoadingImpl _value,
       $Res Function(_$CompanyInfoLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompanyInfoState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -331,6 +340,8 @@ class __$$CompanyInfoSuccesImplCopyWithImpl<$Res>
       $Res Function(_$CompanyInfoSuccesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompanyInfoState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -370,7 +381,9 @@ class _$CompanyInfoSuccesImpl implements CompanyInfoSucces {
   @override
   int get hashCode => Object.hash(runtimeType, companyInfo);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompanyInfoState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CompanyInfoSuccesImplCopyWith<_$CompanyInfoSuccesImpl> get copyWith =>
@@ -457,7 +470,10 @@ abstract class CompanyInfoSucces implements CompanyInfoState {
       _$CompanyInfoSuccesImpl;
 
   CompanyInfoModel get companyInfo;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompanyInfoState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompanyInfoSuccesImplCopyWith<_$CompanyInfoSuccesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -479,6 +495,8 @@ class __$$CompanyInfoErrorImplCopyWithImpl<$Res>
       $Res Function(_$CompanyInfoErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompanyInfoState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -518,7 +536,9 @@ class _$CompanyInfoErrorImpl implements CompanyInfoError {
   @override
   int get hashCode => Object.hash(runtimeType, apiErrorHadler);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompanyInfoState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CompanyInfoErrorImplCopyWith<_$CompanyInfoErrorImpl> get copyWith =>
@@ -605,7 +625,10 @@ abstract class CompanyInfoError implements CompanyInfoState {
       _$CompanyInfoErrorImpl;
 
   ApiErrorHandler get apiErrorHadler;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompanyInfoState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompanyInfoErrorImplCopyWith<_$CompanyInfoErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
