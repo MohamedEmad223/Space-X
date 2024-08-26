@@ -8,6 +8,7 @@ import 'package:space_xplore/core/widgets/custom_app_bar.dart';
 import '../../../../core/theming/colors_manger.dart';
 import '../widgets/circle_image.dart';
 import '../widgets/div.dart';
+import '../widgets/build_text_in_row.dart';
 
 class CrewDetailsScreen extends StatelessWidget {
   const CrewDetailsScreen({super.key, required this.imageUrl});
@@ -46,7 +47,19 @@ class CrewDetailsScreen extends StatelessWidget {
                         SizedBox(
                           height: 10.h,
                         ),
-                        const Div()
+                        const Div(),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        const BuildTextInRow(
+                            agency: 'Agency',
+                            status: 'Status',
+                            launches: 'Launches'),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        const BuildTextInRow(
+                            agency: 'Nasa', status: 'Active', launches: '10'),
                       ]),
                     ))
               ],
