@@ -1,0 +1,32 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:space_xplore/feature/crew/logic/cubit/crew_state.dart';
+import '../../data/model/crew_model.dart';
+import '../../data/repo/crew_repo.dart';
+
+class CrewCubit extends Cubit<CrewState> {
+  final CrewRepo _crewRepo;
+  final List<CrewModel> allCrewMembers = [];
+  int page = 1;
+
+  CrewCubit(this._crewRepo) : super(CrewInitialState());
+
+  Future<void> getAllCrew() async {
+    if (page != 1) {
+      emit(LoadingMoreCrewMembers());
+    } else {
+      emit(CrewLoadingState());
+    }
+    final result = await _crewRepo.fetchAllCrewMembers(page: page);
+    result.fold((failure) {
+      emit(CrewFailureState(errorMessage: failure.errorMessage));
+    }, (successData) {
+      page++;
+      allCrewMembers.addAll(successData.crewMembers);
+      if (successData.hasNextPage == false) {
+        emit(NoMoreCrewMembers());
+      } else {
+        emit(CrewLoadedState(allCrewMembers));
+      }
+    });
+  }
+}
