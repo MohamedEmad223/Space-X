@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:space_xplore/feature/ships/data/repo/ships_repo.dart';
+import 'package:space_xplore/feature/ships/logic/cubit/ships_cubit.dart';
 import '../../feature/company_info/data/repo/company_info_repo.dart';
 import '../../feature/company_info/logic/cubit/company_info_cubit.dart';
 import '../../feature/crew/data/repo/crew_repo.dart';
@@ -23,6 +25,10 @@ void setupDependencyInjection() {
   // crew
   getIt.registerLazySingleton<CrewRepo>(() => CrewRepo(getIt()));
   getIt.registerLazySingleton<CrewCubit>(() => CrewCubit(getIt()));
+
+  // ships
+  getIt.registerLazySingleton<ShipsRepo>(() => ShipsRepo(getIt()));
+  getIt.registerLazySingleton<ShipsCubit>(() => ShipsCubit(getIt()));
 
   // company info
   getIt.registerLazySingleton<CompanyInfoRepo>(() => CompanyInfoRepo(getIt()));

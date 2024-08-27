@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
+import 'package:space_xplore/feature/ships/data/model/query_ships_model.dart';
 import '../../feature/crew/data/model/query_crew_model.dart';
 import '../../feature/rockets/data/model/rocket_model.dart';
 import 'api_constants.dart';
@@ -22,6 +23,10 @@ abstract class ApiServices {
   //-------------------Crew-------------------
   @POST(ApiConstants.queryCrew)
   Future<QueryCrewModel> fetchAllCrewMembers(@Body() body);
+
+  //-------------------Ships------------------
+  @POST(ApiConstants.queryShips)
+  Future<QueryShipsModel> fetchAllShips(@Body() body);
 }
 
 abstract class ParseErrorLogger {

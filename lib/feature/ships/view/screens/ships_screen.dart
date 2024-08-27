@@ -6,7 +6,7 @@ import 'package:space_xplore/core/widgets/custom_app_bar.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/helpers/text_helper.dart';
 import '../../../../core/theming/text_style.dart';
-import '../widgets/ships_custom_gride_veiw.dart';
+import '../widgets/all_ships.dart';
 
 class ShipsScreen extends StatelessWidget {
   const ShipsScreen({super.key});
@@ -27,7 +27,7 @@ class ShipsScreen extends StatelessWidget {
               Text(Constants.shipsModelName,
                   style: TextStyles.font18WhiteMediumOrienta),
               verticalSpace(20.h),
-              const ShipsCustomGrideVeiw()
+              const AllShips()
             ],
           ),
         )))));

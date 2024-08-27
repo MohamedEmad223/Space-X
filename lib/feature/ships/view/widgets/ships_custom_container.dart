@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_xplore/core/helpers/text_helper.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors_manger.dart';
@@ -33,7 +35,25 @@ class ShipsCustomContainer extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Image.network(imageUrl),
+          ClipRRect(
+              borderRadius: BorderRadius.circular(20.r),
+              child: CachedNetworkImage(
+                imageUrl: imageUrl.toString(),
+                height: 100.h,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+                errorWidget: (context, url, error) => Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Center(
+                      child: Text(
+                    Constants.noDataText,
+                    style: TextStyles.font14WhiteRegularOrienta,
+                  )),
+                ),
+              )),
           verticalSpace(10),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.w),

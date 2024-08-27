@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_xplore/feature/ships/data/model/ships_model.dart';
 
 import '../../../../core/helpers/text_helper.dart';
 import '../../../../core/theming/colors_manger.dart';
@@ -9,22 +10,22 @@ import '../../../crew/view/widgets/div.dart';
 import 'build_text.dart';
 
 class DetailsContainer extends StatelessWidget {
-  const DetailsContainer({super.key, required this.imageUrl});
-  final String imageUrl;
+  const DetailsContainer({super.key, required this.shipsdetails});
+  final ShipsModel shipsdetails;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 343.w,
+      width: 345.w,
       decoration:
           const BoxDecoration(color: ColorsManager.lightTransparentColor),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 20.w),
+        padding: EdgeInsets.symmetric(horizontal: 15.h, vertical: 20.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'name',
+              shipsdetails.shipName!,
               style: TextStyles.font24WhiteBoldOrbitron,
             ),
             const Div(),
@@ -32,18 +33,28 @@ class DetailsContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
-                    const BuildText(text: Constants.shipTypeAttribute),
+                    BuildText(
+                        text:
+                            "${Constants.shipTypeAttribute} ${shipsdetails.shipName!}"),
                     const Divider(),
-                    const BuildText(text: Constants.shipStatusAttribute),
+                    BuildText(
+                        text:
+                            "${Constants.shipStatusAttribute} ${shipsdetails.active!}"),
                     const Divider(),
-                    const BuildText(text: Constants.shipYearBuiltAttribute),
+                    BuildText(
+                        text:
+                            "${Constants.shipYearBuiltAttribute} ${shipsdetails.yearBuilt!}"),
                     const Divider(),
-                    const BuildText(text: Constants.shipWeightAttribute),
+                    BuildText(
+                        text:
+                            "${Constants.shipWeightAttribute} ${shipsdetails.weightKg!} (kg)"),
                     const Divider(),
-                    const LinkText(
-                      linkUrl: Constants.shipTypeAttribute,
-                      linkName: Constants.shipTypeAttribute,
+                    LinkText(
+                      linkUrl: shipsdetails.link!,
+                      linkName: shipsdetails.shipName!,
                     ),
                     Divider(
                       thickness: 5.h,
@@ -59,7 +70,7 @@ class DetailsContainer extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.r),
                         child: Image.network(
-                          imageUrl,
+                          shipsdetails.image!,
                           fit: BoxFit.fitHeight,
                         ),
                       ),

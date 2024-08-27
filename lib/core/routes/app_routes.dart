@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_xplore/core/di/dependency_injection.dart';
 import 'package:space_xplore/feature/crew/logic/cubit/crew_cubit.dart';
 import 'package:space_xplore/feature/rockets/logic/cubit/rockets_cubit.dart';
+import 'package:space_xplore/feature/ships/logic/cubit/ships_cubit.dart';
 import '../../feature/company_info/logic/cubit/company_info_cubit.dart';
 import '../../feature/rockets/data/repo/rockets_repo.dart';
 import 'routes.dart';
@@ -26,6 +27,9 @@ class AppRoutes {
                   BlocProvider(
                       create: (context) =>
                           getIt<CrewCubit>()..fetchAllCrew(Routes.crew)),
+                  BlocProvider(
+                      create: (context) =>
+                          getIt<ShipsCubit>()..fetchAllShipsData(Routes.ships)),
                 ], child: const BottomNavBar()));
     }
     return null;

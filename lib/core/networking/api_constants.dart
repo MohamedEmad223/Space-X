@@ -4,4 +4,6 @@ class ApiConstants {
   static const String companyInfo = "company";
   static const String crew = "crew";
   static const String queryCrew = "crew/query";
+  static const String ships = "ships";
+  static const String queryShips = "ships/query";
 }
