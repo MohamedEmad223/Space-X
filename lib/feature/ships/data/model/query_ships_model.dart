@@ -31,5 +31,6 @@ class QueryShipsModel {
     required this.nextPage,
   });
 
-  factory QueryShipsModel.fromJson(json) => _$QueryShipsModelFromJson(json);
+  factory QueryShipsModel.fromJson(Map<String, dynamic> json) =>
+      _$QueryShipsModelFromJson(json);
 }
