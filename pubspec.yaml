@@ -51,6 +51,8 @@ dependencies:
   either_dart: ^1.0.0
   # for loading
   flutter_spinkit: ^5.2.1
+  # for video player
+  youtube_player_flutter: ^9.0.3
   flutter:
     sdk: flutter
 
