@@ -7,13 +7,14 @@ part of 'crew_model.dart';
 // **************************************************************************
 
 CrewModel _$CrewModelFromJson(Map<String, dynamic> json) => CrewModel(
-      name: json['name'] as String,
-      agency: json['agency'] as String,
-      image: json['image'] as String,
-      wikipedia: json['wikipedia'] as String,
-      launches:
-          (json['launches'] as List<dynamic>).map((e) => e as String).toList(),
-      status: json['status'] as String,
+      name: json['name'] as String?,
+      agency: json['agency'] as String?,
+      image: json['image'] as String?,
+      wikipedia: json['wikipedia'] as String?,
+      launches: (json['launches'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      status: json['status'] as String?,
     );
 
 Map<String, dynamic> _$CrewModelToJson(CrewModel instance) => <String, dynamic>{

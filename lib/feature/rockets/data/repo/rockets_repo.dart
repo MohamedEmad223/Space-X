@@ -9,7 +9,8 @@ class RocketsRepo {
 
   RocketsRepo(this.apiService);
 
-  Future<Either<ApiErrorHandler, List<RocketModel>>> getAllRockets() async {
+  Future<Either<ApiErrorHandler, List<RocketModel>>> getAllRockets(
+      String path) async {
     try {
       final rocketsList = await apiService.fetchAllRockets();
       return Right(rocketsList);

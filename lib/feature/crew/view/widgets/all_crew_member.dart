@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:space_xplore/feature/crew/data/model/crew_model.dart';
 
+import '../../../../core/routes/routes.dart';
 import '../../../../core/theming/colors_manger.dart';
 import '../../../../core/widgets/custom_loading_widgets.dart';
 import '../../../../core/widgets/error_request.dart';
@@ -64,6 +65,6 @@ class _AllCrewMembersState extends State<AllCrewMembers> {
   }
 
   void _fetchData() {
-    BlocProvider.of<CrewCubit>(context).getAllCrew();
+    BlocProvider.of<CrewCubit>(context).fetchAllCrew(Routes.crew);
   }
 }

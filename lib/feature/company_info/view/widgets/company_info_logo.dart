@@ -18,15 +18,15 @@ class CompanyInfoLogos extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         LogosLinkCircle(
-          link: links.website,
+          link: links.website!,
           logo: Constants.spaceXLogoAssetPath,
         ),
         LogosLinkCircle(
-          link: links.twitter,
+          link: links.twitter!,
           logo: Constants.twitterLogoAssetPath,
         ),
         LogosLinkCircle(
-          link: links.flickr,
+          link: links.flickr!,
           logo: Constants.flickrLogoAssetPath,
         ),
       ],

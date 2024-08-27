@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_xplore/core/helpers/text_helper.dart';
@@ -7,9 +9,10 @@ import 'package:space_xplore/core/widgets/custom_app_bar.dart';
 import 'package:space_xplore/feature/crew/data/model/crew_model.dart';
 
 import '../../../../core/theming/colors_manger.dart';
+import '../widgets/build_widget_in_row_two.dart';
 import '../widgets/circle_image.dart';
 import '../widgets/div.dart';
-import '../widgets/build_text_in_row.dart';
+import '../widgets/build_text_in_row_one.dart';
 
 class CrewDetailsScreen extends StatelessWidget {
   const CrewDetailsScreen(
@@ -19,6 +22,9 @@ class CrewDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log("messageCreewModel: ${crewModel.agency!}");
+    log("messageImageUrl: ${crewModel.launches}");
+
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: const CustomAppBar(),
@@ -54,15 +60,17 @@ class CrewDetailsScreen extends StatelessWidget {
                         SizedBox(
                           height: 10.h,
                         ),
-                        BuildTextInRow(
-                            agency: crewModel.agency,
-                            status: crewModel.status,
-                            launches: crewModel.launches.toString()),
+                        const BuildTextInRowOne(
+                            agency: "Agency",
+                            status: "Status",
+                            launches: "Launches"),
                         SizedBox(
                           height: 10.h,
                         ),
-                        const BuildTextInRow(
-                            agency: 'Nasa', status: 'Active', launches: '10'),
+                        BuildTextInRowTwo(
+                            agency: crewModel.agency!,
+                            status: crewModel.status!,
+                            launches: crewModel.launches.toString()),
                       ]),
                     ))
               ],

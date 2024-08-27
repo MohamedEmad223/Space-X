@@ -3,32 +3,32 @@ part 'company_info_model.g.dart';
 
 @JsonSerializable()
 class CompanyInfoModel {
-  Headquarters headquarters;
-  Links links;
-  String name;
-  String founder;
-  int founded;
-  int employees;
-  int vehicles;
+  Headquarters? headquarters;
+  Links? links;
+  String? name;
+  String? founder;
+  int? founded;
+  int? employees;
+  int? vehicles;
   @JsonKey(name: 'launch_sites')
-  int launchSites;
+  int? launchSites;
   @JsonKey(name: 'test_sites')
-  int testSites;
-  String ceo;
-  String summary;
+  int? testSites;
+  String? ceo;
+  String? summary;
 
   CompanyInfoModel({
-    required this.headquarters,
-    required this.links,
-    required this.name,
-    required this.founder,
-    required this.founded,
-    required this.employees,
-    required this.vehicles,
-    required this.launchSites,
-    required this.testSites,
-    required this.ceo,
-    required this.summary,
+    this.headquarters,
+    this.links,
+    this.name,
+    this.founder,
+    this.founded,
+    this.employees,
+    this.vehicles,
+    this.launchSites,
+    this.testSites,
+    this.ceo,
+    this.summary,
   });
 
   factory CompanyInfoModel.fromJson(Map<String, dynamic> json) =>
@@ -37,14 +37,14 @@ class CompanyInfoModel {
 
 @JsonSerializable()
 class Headquarters {
-  String address;
-  String city;
-  String state;
+  String? address;
+  String? city;
+  String? state;
 
   Headquarters({
-    required this.address,
-    required this.city,
-    required this.state,
+    this.address,
+    this.city,
+    this.state,
   });
 
   factory Headquarters.fromJson(Map<String, dynamic> json) =>
@@ -53,16 +53,16 @@ class Headquarters {
 
 @JsonSerializable()
 class Links {
-  String website;
-  String flickr;
-  String twitter;
-  String elonTwitter;
+  String? website;
+  String? flickr;
+  String? twitter;
+  String? elonTwitter;
 
   Links({
-    required this.website,
-    required this.flickr,
-    required this.twitter,
-    required this.elonTwitter,
+    this.website,
+    this.flickr,
+    this.twitter,
+    this.elonTwitter,
   });
 
   factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
