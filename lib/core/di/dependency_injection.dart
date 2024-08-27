@@ -6,6 +6,8 @@ import '../../feature/company_info/data/repo/company_info_repo.dart';
 import '../../feature/company_info/logic/cubit/company_info_cubit.dart';
 import '../../feature/crew/data/repo/crew_repo.dart';
 import '../../feature/crew/logic/cubit/crew_cubit.dart';
+import '../../feature/launches/data/repo/launch_repo.dart';
+import '../../feature/launches/logic/cubit/launch_cubit.dart';
 import '../../feature/rockets/data/repo/rockets_repo.dart';
 import '../networking/api_services.dart';
 import 'package:space_xplore/feature/rockets/logic/cubit/rockets_cubit.dart';
@@ -29,6 +31,10 @@ void setupDependencyInjection() {
   // ships
   getIt.registerLazySingleton<ShipsRepo>(() => ShipsRepo(getIt()));
   getIt.registerLazySingleton<ShipsCubit>(() => ShipsCubit(getIt()));
+
+  // launches
+  getIt.registerLazySingleton<LaunchRepo>(() => LaunchRepo(getIt()));
+  getIt.registerLazySingleton<LaunchCubit>(() => LaunchCubit(getIt()));
 
   // company info
   getIt.registerLazySingleton<CompanyInfoRepo>(() => CompanyInfoRepo(getIt()));
