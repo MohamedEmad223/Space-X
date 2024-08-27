@@ -12,19 +12,8 @@ import '../../logic/cubit/crew_cubit.dart';
 import '../../logic/cubit/crew_state.dart';
 import 'custom_grid_veiw.dart';
 
-class AllCrewMembers extends StatefulWidget {
+class AllCrewMembers extends StatelessWidget {
   const AllCrewMembers({super.key});
-
-  @override
-  State<AllCrewMembers> createState() => _AllCrewMembersState();
-}
-
-class _AllCrewMembersState extends State<AllCrewMembers> {
-  @override
-  void initState() {
-    super.initState();
-    _fetchData();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +25,14 @@ class _AllCrewMembersState extends State<AllCrewMembers> {
           return state is CrewLoadingState
               ? const CustomLoadingWidget()
               : state is CrewFailureState
-                  ? ErrorRequest(fetchData: _fetchData)
+                  ? ErrorRequest(
+                      fetchData: () =>
+                          context.read<CrewCubit>().fetchAllCrew(Routes.crew))
                   : RefreshIndicator(
                       color: ColorsManager.mainColor,
                       onRefresh: () async {
                         cubit.page = 1;
-                        _fetchData();
+                        context.read<CrewCubit>().fetchAllCrew(Routes.crew);
                       },
                       child: Column(
                         children: [
@@ -62,9 +53,5 @@ class _AllCrewMembersState extends State<AllCrewMembers> {
         },
       ),
     );
-  }
-
-  void _fetchData() {
-    BlocProvider.of<CrewCubit>(context).fetchAllCrew(Routes.crew);
   }
 }
