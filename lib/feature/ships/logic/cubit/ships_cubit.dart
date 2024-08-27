@@ -13,7 +13,7 @@ class ShipsCubit extends Cubit<ShipsState> {
   ShipsCubit(this.shipsRepo) : super(ShipsInitial());
   static ShipsCubit get(BuildContext context) => BlocProvider.of(context);
 
-  Future<void> getAllShipsData(String path) async {
+  Future<void> fetchAllShipsData(String path) async {
     if (page != 1) {
       emit(LoadingMoreShips());
     } else {
