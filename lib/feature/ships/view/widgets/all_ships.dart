@@ -13,19 +13,8 @@ import '../../../../core/widgets/error_request.dart';
 
 import 'ships_custom_gride_veiw.dart';
 
-class AllShips extends StatefulWidget {
+class AllShips extends StatelessWidget {
   const AllShips({super.key});
-
-  @override
-  State<AllShips> createState() => _AllShipssState();
-}
-
-class _AllShipssState extends State<AllShips> {
-  @override
-  void initState() {
-    super.initState();
-    _fetchData();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +26,17 @@ class _AllShipssState extends State<AllShips> {
           return state is ShipsLoading
               ? const CustomLoadingWidget()
               : state is ShipsFailure
-                  ? ErrorRequest(fetchData: _fetchData)
+                  ? ErrorRequest(
+                      fetchData: () => context
+                          .read<ShipsCubit>()
+                          .fetchAllShipsData(Routes.ships))
                   : RefreshIndicator(
                       color: ColorsManager.mainColor,
                       onRefresh: () async {
                         cubit.page = 1;
-                        _fetchData();
+                        context
+                            .read<ShipsCubit>()
+                            .fetchAllShipsData(Routes.ships);
                       },
                       child: Column(
                         children: [
@@ -63,9 +57,5 @@ class _AllShipssState extends State<AllShips> {
         },
       ),
     );
-  }
-
-  void _fetchData() {
-    BlocProvider.of<ShipsCubit>(context).fetchAllShipsData(Routes.ships);
   }
 }
