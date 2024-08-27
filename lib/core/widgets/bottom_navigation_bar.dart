@@ -6,10 +6,6 @@ import '../../feature/crew/view/screens/crew_screen.dart';
 import '../../feature/launches/view/screens/launchs_screen.dart';
 import '../../feature/rockets/view/screens/rockets_screen.dart';
 import '../../feature/ships/view/screens/ships_screen.dart';
-import '../di/dependency_injection.dart';
-import 'package:space_xplore/feature/company_info/logic/cubit/company_info_cubit.dart';
-import 'package:space_xplore/feature/rockets/logic/cubit/rockets_cubit.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../helpers/text_helper.dart';
 import '../theming/colors_manger.dart';
 import '../theming/text_style.dart';
@@ -38,17 +34,11 @@ class BottomNavBar extends StatelessWidget {
 
 List<Widget> _buildScreens() {
   return [
-    BlocProvider(
-      create: (context) => getIt<RocketsCubit>()..fetchAllRockets(),
-      child: const RocketsScreen(),
-    ),
+    const RocketsScreen(),
     const LaunchsScreen(),
     const CrewScreen(),
     const ShipsScreen(),
-    BlocProvider(
-      create: (context) => getIt<CompanyInfoCubit>()..fetchCompanyInfo(),
-      child: const CompanyInfoScreen(),
-    ),
+    const CompanyInfoScreen(),
   ];
 }
 

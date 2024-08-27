@@ -23,7 +23,7 @@ class CompanyInfoDetails extends StatelessWidget {
           children: [
             TitleAndDescriptionColumn(
               title: Constants.companyInfoFounderAttribute,
-              description: companyInfo.founder,
+              description: companyInfo.founder!,
             ),
             verticalSpace(16),
             TitleAndDescriptionColumn(
@@ -53,7 +53,7 @@ class CompanyInfoDetails extends StatelessWidget {
           children: [
             TitleAndDescriptionColumn(
               title: Constants.companyInfoCEOAttribute,
-              description: companyInfo.ceo,
+              description: companyInfo.ceo!,
             ),
             verticalSpace(16),
             TitleAndDescriptionColumn(

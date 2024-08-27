@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/theming/text_style.dart';
 
-class BuildTextInRow extends StatelessWidget {
-  const BuildTextInRow(
+class BuildTextInRowOne extends StatelessWidget {
+  const BuildTextInRowOne(
       {super.key,
       required this.agency,
       required this.status,

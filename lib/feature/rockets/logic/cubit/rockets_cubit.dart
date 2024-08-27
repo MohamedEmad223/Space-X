@@ -12,9 +12,9 @@ class RocketsCubit extends Cubit<RocketsState> {
   RocketsCubit(this._rocketsRepo) : super(const RocketsState.rocketsoinitial());
   final RocketsRepo _rocketsRepo;
 
-  void fetchAllRockets() async {
+  void fetchAllRockets(String path) async {
     emit(const RocketsState.rocketsloading());
-    final rockets = await _rocketsRepo.getAllRockets();
+    final rockets = await _rocketsRepo.getAllRockets(path);
     rockets.fold(
       (error) => emit(RocketsState.rocketserror(error)),
       (rockets) => emit(RocketsState.rocketssucces(rockets)),

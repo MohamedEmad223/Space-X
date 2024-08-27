@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_xplore/core/helpers/spacing.dart';
+import 'package:space_xplore/core/routes/routes.dart';
 import 'package:space_xplore/feature/rockets/logic/cubit/rockets_cubit.dart';
 
 import '../../../../core/helpers/text_helper.dart';
@@ -37,7 +38,9 @@ class RocketsScreen extends StatelessWidget {
                     if (state is RocketsError) {
                       return ErrorRequest(
                         fetchData: () {
-                          context.read<RocketsCubit>().fetchAllRockets();
+                          context
+                              .read<RocketsCubit>()
+                              .fetchAllRockets(Routes.rocket);
                         },
                       );
                     } else if (state is RocketsLoading) {

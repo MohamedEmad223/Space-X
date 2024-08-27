@@ -8,6 +8,7 @@ import 'package:space_xplore/feature/company_info/view/widgets/title_and_describ
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/helpers/text_helper.dart';
+import '../../../../core/routes/routes.dart';
 import '../../../../core/theming/colors_manger.dart';
 import '../../../../core/theming/text_style.dart';
 import '../../../../core/widgets/background_container.dart';
@@ -27,7 +28,6 @@ class CompanyInfoScreen extends StatelessWidget {
         child: SafeArea(
           child: BlocBuilder<CompanyInfoCubit, CompanyInfoState>(
             builder: (context, state) {
-              
               return state is CompanyInfoSucces
                   ? SingleChildScrollView(
                       child: Center(
@@ -67,7 +67,7 @@ class CompanyInfoScreen extends StatelessWidget {
                                     ),
                                     horizontalSpace(8),
                                     Text(
-                                      state.companyInfo.name,
+                                      state.companyInfo.name ?? '',
                                       style: TextStyles
                                           .font25WhiteExtraBoldOrbitron,
                                     ),
@@ -78,7 +78,7 @@ class CompanyInfoScreen extends StatelessWidget {
                                   title: Constants
                                       .companyInfoHeadQuartersAttribute,
                                   description:
-                                      "${state.companyInfo.headquarters.address},${state.companyInfo.headquarters.city},${state.companyInfo.headquarters.state}",
+                                      "${state.companyInfo.headquarters!.address},${state.companyInfo.headquarters!.city},${state.companyInfo.headquarters!.state}",
                                 ),
                                 verticalSpace(16),
                                 CompanyInfoDetails(
@@ -93,11 +93,11 @@ class CompanyInfoScreen extends StatelessWidget {
                                 verticalSpace(16),
                                 TitleAndDescriptionColumn(
                                   title: Constants.companyInfoAboutUsAttribute,
-                                  description: state.companyInfo.summary,
+                                  description: state.companyInfo.summary ?? '',
                                 ),
                                 verticalSpace(16),
                                 CompanyInfoLogos(
-                                    links: state.companyInfo.links),
+                                    links: state.companyInfo.links!),
                                 verticalSpace(10),
                               ],
                             ),
@@ -107,7 +107,9 @@ class CompanyInfoScreen extends StatelessWidget {
                     )
                   : state is CompanyInfoError
                       ? ErrorRequest(fetchData: () {
-                          context.read<CompanyInfoCubit>().fetchCompanyInfo();
+                          context
+                              .read<CompanyInfoCubit>()
+                              .fetchCompanyInfo(Routes.companyInfo);
                         })
                       : const CustomLoadingWidget();
             },

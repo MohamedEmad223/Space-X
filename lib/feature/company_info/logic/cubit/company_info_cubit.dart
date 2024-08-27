@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:space_xplore/feature/company_info/data/repo/company_info_repo.dart';
@@ -14,12 +16,18 @@ class CompanyInfoCubit extends Cubit<CompanyInfoState> {
 
   final CompanyInfoRepo _companyInfoRepo;
 
-  void fetchCompanyInfo() async {
+  void fetchCompanyInfo(String path) async {
     emit(const CompanyInfoState.companyInfoloading());
-    final companyInfo = await _companyInfoRepo.fetchCompanyInfo();
+    final companyInfo = await _companyInfoRepo.fetchCompanyInfo(path);
     companyInfo.fold(
-      (error) => emit(CompanyInfoState.companyInfoError(error)),
-      (companyInfo) => emit(CompanyInfoState.companyInfoSucces(companyInfo)),
+      (error) {
+        log('cubit error => $error');
+        emit(CompanyInfoState.companyInfoError(error));
+      },
+      (companyInfo) {
+        log('cubit success => $companyInfo');
+        emit(CompanyInfoState.companyInfoSucces(companyInfo));
+      },
     );
   }
 }
