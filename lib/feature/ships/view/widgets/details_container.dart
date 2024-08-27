@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_xplore/feature/ships/data/model/ships_model.dart';
 
 import '../../../../core/helpers/text_helper.dart';
 import '../../../../core/theming/colors_manger.dart';
@@ -9,8 +10,8 @@ import '../../../crew/view/widgets/div.dart';
 import 'build_text.dart';
 
 class DetailsContainer extends StatelessWidget {
-  const DetailsContainer({super.key, required this.imageUrl});
-  final String imageUrl;
+  const DetailsContainer({super.key, required this.shipsdetails});
+  final ShipsModel shipsdetails;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class DetailsContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'name',
+              shipsdetails.shipName!,
               style: TextStyles.font24WhiteBoldOrbitron,
             ),
             const Div(),
@@ -59,7 +60,7 @@ class DetailsContainer extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.r),
                         child: Image.network(
-                          imageUrl,
+                          shipsdetails.image!,
                           fit: BoxFit.fitHeight,
                         ),
                       ),

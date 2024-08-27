@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:space_xplore/core/widgets/background_container.dart';
 import 'package:space_xplore/core/widgets/custom_app_bar.dart';
+import 'package:space_xplore/feature/ships/data/model/ships_model.dart';
 import 'package:space_xplore/feature/ships/view/widgets/details_container.dart';
 
 class DetailsShipsScreen extends StatelessWidget {
-  const DetailsShipsScreen({super.key, required this.imageUrl});
-  final String imageUrl;
+  const DetailsShipsScreen({super.key, required this.ships});
+  final ShipsModel ships;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class DetailsShipsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           DetailsContainer(
-            imageUrl: imageUrl,
+            shipsdetails: ships,
           )
         ],
       ))),
