@@ -21,17 +21,3 @@ QueryShipsModel _$QueryShipsModelFromJson(Map<String, dynamic> json) =>
       prevPage: (json['prevPage'] as num?)?.toInt(),
       nextPage: (json['nextPage'] as num?)?.toInt(),
     );
-
-Map<String, dynamic> _$QueryShipsModelToJson(QueryShipsModel instance) =>
-    <String, dynamic>{
-      'docs': instance.ships,
-      'totalDocs': instance.totalDocs,
-      'limit': instance.limit,
-      'totalPages': instance.totalPages,
-      'page': instance.page,
-      'pagingCounter': instance.pagingCounter,
-      'hasPrevPage': instance.hasPrevPage,
-      'hasNextPage': instance.hasNextPage,
-      'prevPage': instance.prevPage,
-      'nextPage': instance.nextPage,
-    };
