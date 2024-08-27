@@ -16,11 +16,11 @@ class DetailsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 343.w,
+      width: 345.w,
       decoration:
           const BoxDecoration(color: ColorsManager.lightTransparentColor),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 20.w),
+        padding: EdgeInsets.symmetric(horizontal: 15.h, vertical: 20.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -33,18 +33,28 @@ class DetailsContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
-                    const BuildText(text: Constants.shipTypeAttribute),
+                    BuildText(
+                        text:
+                            "${Constants.shipTypeAttribute} ${shipsdetails.shipName!}"),
                     const Divider(),
-                    const BuildText(text: Constants.shipStatusAttribute),
+                    BuildText(
+                        text:
+                            "${Constants.shipStatusAttribute} ${shipsdetails.active!}"),
                     const Divider(),
-                    const BuildText(text: Constants.shipYearBuiltAttribute),
+                    BuildText(
+                        text:
+                            "${Constants.shipYearBuiltAttribute} ${shipsdetails.yearBuilt!}"),
                     const Divider(),
-                    const BuildText(text: Constants.shipWeightAttribute),
+                    BuildText(
+                        text:
+                            "${Constants.shipWeightAttribute} ${shipsdetails.weightKg!} (kg)"),
                     const Divider(),
-                    const LinkText(
-                      linkUrl: Constants.shipTypeAttribute,
-                      linkName: Constants.shipTypeAttribute,
+                    LinkText(
+                      linkUrl: shipsdetails.link!,
+                      linkName: shipsdetails.shipName!,
                     ),
                     Divider(
                       thickness: 5.h,
