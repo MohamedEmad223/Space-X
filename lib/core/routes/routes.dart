@@ -4,4 +4,5 @@ class Routes {
   static const String companyInfo = '/company-info';
   static const String crew = '/crew';
   static const String ships = '/ships';
+  static const String launches = '/launches';
 }

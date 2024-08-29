@@ -3,8 +3,9 @@ import 'dart:developer';
 import 'package:either_dart/either.dart';
 import 'package:space_xplore/core/networking/api_error_handler.dart';
 import 'package:space_xplore/core/networking/api_services.dart';
-import 'package:space_xplore/feature/launches/data/models/launch_model.dart';
 import 'package:space_xplore/feature/launches/data/models/query_launches.dart';
+
+import '../models/launch_model.dart';
 
 class LaunchRepo {
   final ApiServices _apiServices;
@@ -20,8 +21,10 @@ class LaunchRepo {
           "limit": 10,
         }
       });
+      log('repo success=> $launchesList');
       return Right(launchesList);
     } catch (e) {
+      log('repo error=> $e');
       return Left(ServerFailure(errorMessage: e.toString()));
     }
   }

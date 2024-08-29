@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +16,7 @@ class LaunchCubit extends Cubit<LaunchState> {
 
   static LaunchCubit get(BuildContext context) => BlocProvider.of(context);
 
-  void getAllLaunches() async {
+  void getAllLaunches(String path) async {
     if (page != 1) {
       emit(LoadingMoreLaunches());
     } else {
@@ -22,9 +24,11 @@ class LaunchCubit extends Cubit<LaunchState> {
     }
     final result = await _launchRepo.getAllLaunches(page: page);
     result.fold((failure) {
+      log('error=> $failure');
       emit(GetAllLaunchesFailure(errorMessage: failure.errorMessage));
     }, (successData) {
       page++;
+      log('success=> $successData');
       allLaunches.addAll(successData.launches!);
       if (successData.hasNextPage == false) {
         emit(NoMoreLaunches());

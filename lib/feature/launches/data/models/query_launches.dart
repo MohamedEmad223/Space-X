@@ -5,6 +5,7 @@ part 'query_launches.g.dart';
 
 @JsonSerializable()
 class QueryLaunches {
+  @JsonKey(name: "docs")
   final List<LaunchModel>? launches;
   final int? totalDocs;
   final int? limit;
@@ -16,19 +17,18 @@ class QueryLaunches {
   final int? prevPage;
   final int? nextPage;
 
-  QueryLaunches({
-    required this.launches,
-    required this.totalDocs,
-    required this.limit,
-    required this.totalPages,
-    required this.page,
-    required this.pagingCounter,
-    required this.hasPrevPage,
-    required this.hasNextPage,
-    required this.prevPage,
-    required this.nextPage,
-  });
+  QueryLaunches(
+    this.launches,
+    this.totalDocs,
+    this.limit,
+    this.totalPages,
+    this.page,
+    this.pagingCounter,
+    this.hasPrevPage,
+    this.hasNextPage,
+    this.prevPage,
+    this.nextPage,
+  );
 
-  factory QueryLaunches.fromJson(Map<String, dynamic> json) =>
-      _$QueryLaunchesFromJson(json);
+  factory QueryLaunches.fromJson(json) => _$QueryLaunchesFromJson(json);
 }

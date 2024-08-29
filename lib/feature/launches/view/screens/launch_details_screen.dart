@@ -8,11 +8,15 @@ import '../../../../core/widgets/background_container.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_text_span.dart';
 import '../../../../core/widgets/link_text.dart';
+import '../../data/models/launch_model.dart';
 
 class LaunchDetailsScreen extends StatelessWidget {
   const LaunchDetailsScreen({
     super.key,
+    required this.allLaunches,
   });
+
+  final LaunchModel allLaunches;
 
   @override
   Widget build(BuildContext context) {

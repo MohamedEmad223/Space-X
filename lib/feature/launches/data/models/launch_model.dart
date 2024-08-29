@@ -3,23 +3,23 @@ part 'launch_model.g.dart';
 
 @JsonSerializable()
 class LaunchModel {
-  final LinksModel links;
-  final FailuresModel failures;
+  final LinksModel? links;
+  final List<FailuresModel>? failures;
   final int? flightNumber;
   final String? name;
   final String? dateUtc;
   final String? id;
-  final String? success;
+  final bool? success;
 
-  LaunchModel({
-    required this.links,
-    required this.failures,
-    required this.flightNumber,
-    required this.name,
-    required this.dateUtc,
-    required this.id,
-    required this.success,
-  });
+  LaunchModel(
+    this.links,
+    this.failures,
+    this.flightNumber,
+    this.name,
+    this.dateUtc,
+    this.id,
+    this.success,
+  );
 
   factory LaunchModel.fromJson(Map<String, dynamic> json) =>
       _$LaunchModelFromJson(json);
@@ -27,8 +27,8 @@ class LaunchModel {
 
 @JsonSerializable()
 class FailuresModel {
-  final String? time;
-  final String? altitude;
+  final int? time;
+  final int? altitude;
   final String? reason;
 
   FailuresModel({
