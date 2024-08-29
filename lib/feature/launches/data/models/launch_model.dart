@@ -48,7 +48,7 @@ class LinksModel {
   @JsonKey(name: "youtube_id")
   final String? youtubeId;
   final String? article;
-  final String? wikipedia;
+  final String wikipedia;
 
   LinksModel({
     required this.patch,

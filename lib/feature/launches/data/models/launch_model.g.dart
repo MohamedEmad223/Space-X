@@ -50,7 +50,7 @@ LinksModel _$LinksModelFromJson(Map<String, dynamic> json) => LinksModel(
       webcast: json['webcast'] as String?,
       youtubeId: json['youtube_id'] as String?,
       article: json['article'] as String?,
-      wikipedia: json['wikipedia'] as String?,
+      wikipedia: json['wikipedia'] as String,
     );
 
 Map<String, dynamic> _$LinksModelToJson(LinksModel instance) =>

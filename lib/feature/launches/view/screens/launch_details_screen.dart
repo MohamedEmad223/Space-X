@@ -44,40 +44,41 @@ class LaunchDetailsScreen extends StatelessWidget {
                     ),
                   ),
                   verticalSpace(25),
-                  const CustomTextSpan(
+                  CustomTextSpan(
                     textTitle: Constants.launchDetailsAttribute,
-                    textDescription: 'fghjfj',
+                    textDescription: allLaunches.name,
                   ),
                   verticalSpace(20),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomTextSpan(
                           textTitle: Constants.launchDateAttribute,
-                          textDescription: 'ch'),
+                          textDescription: allLaunches.dateUtc.toString()),
                       CustomTextSpan(
                         textTitle: Constants.launchFlightNumAttribute,
-                        textDescription: 'fjfgy',
+                        textDescription: allLaunches.flightNumber.toString(),
                       ),
                     ],
                   ),
                   verticalSpace(20),
-                  const CustomTextSpan(
+                  CustomTextSpan(
                       textTitle: Constants.launchSuccessAttribute,
-                      textDescription: 'cg'),
+                      textDescription: allLaunches.success.toString()),
                   verticalSpace(20),
-                  const CustomTextSpan(
+                  CustomTextSpan(
                       textTitle: Constants.launchFailuresAttribute,
-                      textDescription: 'hgj'),
+                      textDescription:
+                          allLaunches.failures![0].reason.toString()),
                   verticalSpace(20),
-                  const LinkText(
-                    linkUrl: 'ygu',
-                    linkName: 'fgjhhj',
+                  LinkText(
+                    linkUrl: allLaunches.links!.wikipedia.toString(),
+                    linkName: Constants.wikipediaText,
                   ),
                   verticalSpace(20),
-                  const LinkText(
-                    linkUrl: 'fgh',
-                    linkName: 'gfh',
+                  LinkText(
+                    linkUrl: allLaunches.links!.article.toString(),
+                    linkName: Constants.articleText,
                   ),
                 ],
               ),
