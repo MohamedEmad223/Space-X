@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/helpers/text_helper.dart';
-import '../../../../core/theming/text_style.dart';
 import '../../../../core/widgets/background_container.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_text_span.dart';
 import '../../../../core/widgets/link_text.dart';
 import '../../data/models/launch_model.dart';
 
-class LaunchDetailsScreen extends StatelessWidget {
+class LaunchDetailsScreen extends StatefulWidget {
   const LaunchDetailsScreen({
     super.key,
     required this.allLaunches,
@@ -18,6 +18,11 @@ class LaunchDetailsScreen extends StatelessWidget {
 
   final LaunchModel allLaunches;
 
+  @override
+  State<LaunchDetailsScreen> createState() => _LaunchDetailsScreenState();
+}
+
+class _LaunchDetailsScreenState extends State<LaunchDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,8 +34,8 @@ class LaunchDetailsScreen extends StatelessWidget {
             padding: EdgeInsetsDirectional.only(
               top: 13.h,
               bottom: 13.h,
-              start: 16.w,
-              end: 16.w,
+              start: 10.w,
+              end: 10.w,
             ),
             child: SingleChildScrollView(
               child: Column(
@@ -38,46 +43,56 @@ class LaunchDetailsScreen extends StatelessWidget {
                 children: [
                   verticalSpace(30),
                   Center(
-                    child: Text(
-                      'vgjh',
-                      style: TextStyles.font24WhiteBoldOrbitron,
+                    child: YoutubePlayer(
+                      controller: YoutubePlayerController(
+                          initialVideoId:
+                              widget.allLaunches.links!.youtubeId.toString()),
+                      showVideoProgressIndicator: true,
+                      progressIndicatorColor: Colors.red,
                     ),
                   ),
                   verticalSpace(25),
                   CustomTextSpan(
                     textTitle: Constants.launchDetailsAttribute,
-                    textDescription: allLaunches.name,
+                    textDescription: widget.allLaunches.name,
                   ),
                   verticalSpace(20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomTextSpan(
-                          textTitle: Constants.launchDateAttribute,
-                          textDescription: allLaunches.dateUtc.toString()),
+                        textTitle: Constants.launchDateAttribute,
+                        textDescription: widget.allLaunches.dateUtc != null
+                            ? widget.allLaunches.dateUtc.toString()
+                            : 'No Date',
+                      ),
                       CustomTextSpan(
                         textTitle: Constants.launchFlightNumAttribute,
-                        textDescription: allLaunches.flightNumber.toString(),
+                        textDescription: widget.allLaunches.flightNumber != null
+                            ? widget.allLaunches.flightNumber.toString()
+                            : 'No Flight Num..',
                       ),
                     ],
                   ),
                   verticalSpace(20),
                   CustomTextSpan(
                       textTitle: Constants.launchSuccessAttribute,
-                      textDescription: allLaunches.success.toString()),
+                      textDescription: widget.allLaunches.success.toString()),
                   verticalSpace(20),
                   CustomTextSpan(
-                      textTitle: Constants.launchFailuresAttribute,
-                      textDescription:
-                          allLaunches.failures![0].reason.toString()),
+                    textTitle: Constants.launchFailuresAttribute,
+                    textDescription: widget.allLaunches.failures.isNotEmpty
+                        ? widget.allLaunches.failures[0].reason.toString()
+                        : 'No Failures',
+                  ),
                   verticalSpace(20),
                   LinkText(
-                    linkUrl: allLaunches.links!.wikipedia.toString(),
+                    linkUrl: widget.allLaunches.links!.wikipedia.toString(),
                     linkName: Constants.wikipediaText,
                   ),
                   verticalSpace(20),
                   LinkText(
-                    linkUrl: allLaunches.links!.article.toString(),
+                    linkUrl: widget.allLaunches.links!.article.toString(),
                     linkName: Constants.articleText,
                   ),
                 ],

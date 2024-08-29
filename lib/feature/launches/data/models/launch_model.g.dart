@@ -7,17 +7,17 @@ part of 'launch_model.dart';
 // **************************************************************************
 
 LaunchModel _$LaunchModelFromJson(Map<String, dynamic> json) => LaunchModel(
-      json['links'] == null
+      failures: (json['failures'] as List<dynamic>)
+          .map((e) => FailuresModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      flightNumber: (json['flightNumber'] as num?)?.toInt(),
+      dateUtc: json['dateUtc'] as String?,
+      name: json['name'] as String?,
+      id: json['id'] as String?,
+      success: json['success'] as bool?,
+      links: json['links'] == null
           ? null
           : LinksModel.fromJson(json['links'] as Map<String, dynamic>),
-      (json['failures'] as List<dynamic>?)
-          ?.map((e) => FailuresModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      (json['flightNumber'] as num?)?.toInt(),
-      json['name'] as String?,
-      json['dateUtc'] as String?,
-      json['id'] as String?,
-      json['success'] as bool?,
     );
 
 Map<String, dynamic> _$LaunchModelToJson(LaunchModel instance) =>
