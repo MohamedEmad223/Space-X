@@ -1,6 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/helpers/text_helper.dart';
@@ -10,7 +10,7 @@ import '../../../../core/widgets/custom_text_span.dart';
 import '../../../../core/widgets/link_text.dart';
 import '../../data/models/launch_model.dart';
 
-class LaunchDetailsScreen extends StatefulWidget {
+class LaunchDetailsScreen extends StatelessWidget {
   const LaunchDetailsScreen({
     super.key,
     required this.allLaunches,
@@ -18,11 +18,6 @@ class LaunchDetailsScreen extends StatefulWidget {
 
   final LaunchModel allLaunches;
 
-  @override
-  State<LaunchDetailsScreen> createState() => _LaunchDetailsScreenState();
-}
-
-class _LaunchDetailsScreenState extends State<LaunchDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,18 +38,12 @@ class _LaunchDetailsScreenState extends State<LaunchDetailsScreen> {
                 children: [
                   verticalSpace(30),
                   Center(
-                    child: YoutubePlayer(
-                      controller: YoutubePlayerController(
-                          initialVideoId:
-                              widget.allLaunches.links!.youtubeId.toString()),
-                      showVideoProgressIndicator: true,
-                      progressIndicatorColor: Colors.red,
-                    ),
-                  ),
+                      child: CachedNetworkImage(
+                          imageUrl: allLaunches.links!.patch.small.toString())),
                   verticalSpace(25),
                   CustomTextSpan(
                     textTitle: Constants.launchDetailsAttribute,
-                    textDescription: widget.allLaunches.name,
+                    textDescription: allLaunches.name,
                   ),
                   verticalSpace(20),
                   Row(
@@ -62,14 +51,14 @@ class _LaunchDetailsScreenState extends State<LaunchDetailsScreen> {
                     children: [
                       CustomTextSpan(
                         textTitle: Constants.launchDateAttribute,
-                        textDescription: widget.allLaunches.dateUtc != null
-                            ? widget.allLaunches.dateUtc.toString()
+                        textDescription: allLaunches.dateUtc != null
+                            ? allLaunches.dateUtc.toString()
                             : 'No Date',
                       ),
                       CustomTextSpan(
                         textTitle: Constants.launchFlightNumAttribute,
-                        textDescription: widget.allLaunches.flightNumber != null
-                            ? widget.allLaunches.flightNumber.toString()
+                        textDescription: allLaunches.flightNumber != null
+                            ? allLaunches.flightNumber.toString()
                             : 'No Flight Num..',
                       ),
                     ],
@@ -77,22 +66,22 @@ class _LaunchDetailsScreenState extends State<LaunchDetailsScreen> {
                   verticalSpace(20),
                   CustomTextSpan(
                       textTitle: Constants.launchSuccessAttribute,
-                      textDescription: widget.allLaunches.success.toString()),
+                      textDescription: allLaunches.success.toString()),
                   verticalSpace(20),
                   CustomTextSpan(
                     textTitle: Constants.launchFailuresAttribute,
-                    textDescription: widget.allLaunches.failures.isNotEmpty
-                        ? widget.allLaunches.failures[0].reason.toString()
+                    textDescription: allLaunches.failures.isNotEmpty
+                        ? allLaunches.failures[0].reason.toString()
                         : 'No Failures',
                   ),
                   verticalSpace(20),
                   LinkText(
-                    linkUrl: widget.allLaunches.links!.wikipedia.toString(),
+                    linkUrl: allLaunches.links!.wikipedia.toString(),
                     linkName: Constants.wikipediaText,
                   ),
                   verticalSpace(20),
                   LinkText(
-                    linkUrl: widget.allLaunches.links!.article.toString(),
+                    linkUrl: allLaunches.links!.article.toString(),
                     linkName: Constants.articleText,
                   ),
                 ],

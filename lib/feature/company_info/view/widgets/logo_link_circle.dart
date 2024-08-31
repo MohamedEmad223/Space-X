@@ -20,7 +20,7 @@ class LogosLinkCircle extends StatelessWidget {
         PersistentNavBarNavigator.pushNewScreen(context,
             withNavBar: false,
             pageTransitionAnimation: PageTransitionAnimation.sizeUp,
-            screen: WebView(webViewUrl: link));
+            screen: WebViewWidgets(webViewUrl: link));
       },
       child: CircleAvatar(
         radius: 35,

@@ -46,7 +46,7 @@ dependencies:
   # for crousal image
   carousel_slider: ^5.0.0
   # for webview
-  webview_flutter: ^4.8.0
+  webview_flutter: ^4.9.0
   # for utilities
   either_dart: ^1.0.0
   # for loading
