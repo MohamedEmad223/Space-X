@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../theming/text_style.dart';
 import 'web_veiw.dart';
@@ -26,7 +25,7 @@ class LinkText extends StatelessWidget {
                 begin: 0.0, // Starting scale
                 end: 1.0, // Ending scale
               ).animate(animation),
-              child: WebView(
+              child: WebViewWidgets(
                 webViewUrl: linkUrl,
               ),
             ),

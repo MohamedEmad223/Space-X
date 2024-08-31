@@ -11,10 +11,11 @@ class SpaceXplore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(375, 812),
         minTextAdapt: true,
+        splitScreenMode: true,
+        designSize: const Size(375, 812),
         child: MaterialApp(
-          title: 'Doc App',
+          title: 'SpaceXplore',
           debugShowCheckedModeBanner: false,
           initialRoute: Routes.navBar,
           onGenerateRoute: AppRoutes().onGenerateRoute,

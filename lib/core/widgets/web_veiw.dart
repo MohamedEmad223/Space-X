@@ -6,19 +6,19 @@ import '../helpers/text_helper.dart';
 import '../theming/colors_manger.dart';
 import '../theming/text_style.dart';
 
-class WebView extends StatefulWidget {
+class WebViewWidgets extends StatefulWidget {
   final String webViewUrl;
 
-  const WebView({
+  const WebViewWidgets({
     super.key,
     required this.webViewUrl,
   });
 
   @override
-  State<WebView> createState() => _WebViewState();
+  State<WebViewWidgets> createState() => _WebViewState();
 }
 
-class _WebViewState extends State<WebView> {
+class _WebViewState extends State<WebViewWidgets> {
   late final WebViewController _controller;
   bool _isLoading = true;
 

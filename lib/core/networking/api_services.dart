@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
+import 'package:space_xplore/feature/launches/data/models/launch_model.dart';
+import 'package:space_xplore/feature/launches/data/models/query_launches.dart';
 import 'package:space_xplore/feature/ships/data/model/query_ships_model.dart';
 import '../../feature/crew/data/model/query_crew_model.dart';
 import '../../feature/rockets/data/model/rocket_model.dart';
@@ -27,6 +29,13 @@ abstract class ApiServices {
   //-------------------Ships------------------
   @POST(ApiConstants.queryShips)
   Future<QueryShipsModel> fetchAllShips(@Body() body);
+
+  //-------------------Launches-------------------
+  @POST(ApiConstants.queryLaunches)
+  Future<QueryLaunches> fetchAllLaunches(@Body() body);
+
+  @GET("${ApiConstants.launches}/{id}")
+  Future<LaunchModel> fetchLaunchById({@Path("id") required String id});
 }
 
 abstract class ParseErrorLogger {

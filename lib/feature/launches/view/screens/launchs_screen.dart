@@ -5,7 +5,7 @@ import '../../../../core/helpers/text_helper.dart';
 import '../../../../core/theming/text_style.dart';
 import '../../../../core/widgets/background_container.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
-import '../widgets/launch_custom_card.dart';
+import '../widgets/all_launch.dart';
 
 class LaunchsScreen extends StatelessWidget {
   const LaunchsScreen({super.key});
@@ -27,7 +27,7 @@ class LaunchsScreen extends StatelessWidget {
                 SizedBox(
                   height: 20.h,
                 ),
-                const LaunchCustomCard()
+                const AllLaunchesBody()
               ],
             ),
           ),

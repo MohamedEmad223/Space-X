@@ -6,7 +6,7 @@ import 'colors_manger.dart';
 import 'font_weight_manager.dart';
 
 class TextStyles {
-  // ------------------- Regular fonts -------------------
+  // ------------------- Regular fonts ------------------- //
   static TextStyle font14WhiteRegularOrienta = GoogleFonts.orienta(
     color: ColorsManager.whiteColor,
     fontSize: 14.sp,
@@ -38,7 +38,7 @@ class TextStyles {
     fontWeight: FontWeightManager.regular,
   );
 
-  // ------------------- Medium Fonts -------------------
+  // ------------------- Medium Fonts ------------------- //
   static TextStyle font12WhiteMediumOrienta = GoogleFonts.orienta(
     color: ColorsManager.whiteColor,
     fontSize: 12.sp,
@@ -67,7 +67,7 @@ class TextStyles {
     fontWeight: FontWeightManager.medium,
   );
 
-  //------------------- Bold fonts -------------------
+  //------------------- Bold fonts ------------------- //
   static TextStyle font10WhiteBoldOrienta = GoogleFonts.orienta(
     color: ColorsManager.whiteColor,
     fontSize: 10.sp,
@@ -109,7 +109,7 @@ class TextStyles {
     fontWeight: FontWeightManager.bold,
   );
 
-  //------------------- Extra Bold fonts -------------------
+  //------------------- Extra Bold fonts ------------------- //
   static TextStyle font25WhiteExtraBoldOrbitron = GoogleFonts.orienta(
     fontSize: 25.sp,
     fontWeight: FontWeightManager.extraBold,
